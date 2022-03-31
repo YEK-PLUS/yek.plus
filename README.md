@@ -3,7 +3,7 @@ Todo
 - [ ] Create `Projects` page
 - [x] Check lint rules with husyk
 - [ ] Create Dockerfile
-- [ ] LogRocket setup
+- [x] LogRocket setup
 - [ ] Tests
 - [ ] Create CI/CD pipeline
 - [ ] Deploy heroku
