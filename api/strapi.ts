@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const { STRAPI_ENDPOINT, STRAPI_TOKEN } = process.env;
+const { NEXT_PUBLIC_STRAPI_ENDPOINT, STRAPI_TOKEN } = process.env;
 
 const strapi = axios.create({
-  baseURL: STRAPI_ENDPOINT,
+  baseURL: NEXT_PUBLIC_STRAPI_ENDPOINT,
   headers: {
     authorization: `Bearer ${STRAPI_TOKEN}`,
     'content-type': 'application/json',
