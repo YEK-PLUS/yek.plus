@@ -2,26 +2,16 @@ import Image from 'next/image';
 import classNames from 'classnames';
 import styled from 'styled-components';
 import assetGenerator from 'helpers/assetGenerator';
+import { IHome } from 'types/Home';
 
 const LocationDiv = styled.div`
-  & > span:not(:last-child):after {
+  & > div:not(:last-child):after {
     content: "-";
+    padding: 0 0.5rem;
   }
 `;
 
-const Location = ({
-  className,
-  Name,
-  NickName,
-  locations,
-  miniLogo,
-}: {
-  className: string;
-  Name: string;
-  NickName: string;
-  miniLogo: string;
-  locations: { location: string }[];
-}) => (
+const Location = ({ className, ...props }: { className: string } & IHome) => (
   <div
     className={classNames(
       className,
@@ -30,25 +20,38 @@ const Location = ({
   >
     <span className="mr-auto relative group cursor-pointer">
       <span className="select-none absolute opacity-0 transition-all sm:group-hover:opacity-100">
-        {NickName}
+        {props.data.attributes.NickName}
       </span>
       <span className="select-none transition-all sm:group-hover:opacity-0">
-        {Name}
+        {props.data.attributes.Name}
       </span>
     </span>
 
     <div className="flex justify-end items-center">
-      <LocationDiv className="font-medium text-sm sm:text-lg tracking-widest flex justify-start flex-wrap">
-        {locations.map(({ location }) => (
-          <span key={`location-${location}`}>{location}</span>
+      <LocationDiv className="font-medium text-sm sm:text-lg tracking-widest flex justify-start items-center flex-wrap">
+        {props.data.attributes.Locations.map(({ location, flag }) => (
+          <div key={`location-${location}`} className="flex">
+            <div className="hidden sm:flex items-center mr-2">
+              <Image
+                width={28}
+                height={28}
+                src={assetGenerator({ url: flag.data.attributes.url })}
+                alt={props.data.attributes.NickName}
+                quality={100}
+              />
+            </div>
+            <span>{location}</span>
+          </div>
         ))}
       </LocationDiv>
       <div className="sm:flex hidden justify-end items-center">
         <Image
           height={30}
           width={30}
-          src={assetGenerator({ url: miniLogo })}
-          alt={NickName}
+          src={assetGenerator({
+            url: props.data.attributes.MiniLogo.data.attributes.url,
+          })}
+          alt={props.data.attributes.NickName}
           quality={100}
         />
       </div>
