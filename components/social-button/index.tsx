@@ -1,5 +1,6 @@
 import { IconType } from '@react-icons/all-files';
 import { forwardRef, ForwardedRef } from 'react';
+import classNames from 'classnames';
 
 const SocialButton = forwardRef(
   (
@@ -8,15 +9,17 @@ const SocialButton = forwardRef(
       title,
       href,
       target,
+      className,
     }: {
       icon: IconType;
       title: string;
       href?: string;
       target?: string;
+      className?: string;
     },
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => (
-    <div className="flex flex-row items-center">
+    <div className={classNames('flex flex-row items-center', className)}>
       <Icon className="mr-2" />
       <a
         ref={ref}
@@ -35,5 +38,6 @@ SocialButton.displayName = 'SocialButton';
 SocialButton.defaultProps = {
   href: '#',
   target: '_blank',
+  className: '',
 };
 export default SocialButton;
