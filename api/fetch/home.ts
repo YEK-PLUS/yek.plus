@@ -1,7 +1,14 @@
 import strapi from 'api/strapi';
-import { HomeProps } from './home.types';
+import qs from 'qs';
+import { IHome } from '../../types/Home';
 
-const get = () => strapi.get('/home?populate=*') as Promise<HomeProps>;
+const query = {
+  populate: ['Locations.flag', 'MiniLogo', 'Logo', 'Links'],
+};
+
+const get = () => strapi.get(
+  `/home?${qs.stringify(query, { encodeValuesOnly: true })}`,
+) as Promise<IHome>;
 const remove = () => strapi.delete('/home');
 const home = {
   get,
