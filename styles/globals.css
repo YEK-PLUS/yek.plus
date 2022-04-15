@@ -12,3 +12,6 @@ span,
 p {
   user-select: text;
 }
+html,body,#__next{
+  height: 100%;
+}
