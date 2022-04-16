@@ -1,3 +1,5 @@
+import { IImage } from './Image';
+
 export interface IHome {
   data: {
     attributes: {
@@ -6,30 +8,10 @@ export interface IHome {
       Bio: string;
       Locations: {
         location: string;
-        flag: {
-          data: {
-            id: number;
-            attributes: {
-              url: string;
-            };
-          };
-        };
+        flag: IImage;
       }[];
-      MiniLogo: {
-        data: {
-          attributes: {
-            url: string;
-          };
-        };
-      };
-      Logo: {
-        data: {
-          id: number;
-          attributes: {
-            url: string;
-          };
-        };
-      };
+      MiniLogo: IImage;
+      Logo: IImage;
       Links: {
         link: string;
         name: 'twitter' | 'github' | 'linkedin' | 'mail';
