@@ -17,7 +17,7 @@ export interface IProject
       link: string;
       icon: IImage;
     }>;
-    mainStack: IComponent<{
+    mainStack?: IComponent<{
       name: string;
       link: string;
       icon: IImage;

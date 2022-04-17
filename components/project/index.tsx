@@ -19,13 +19,15 @@ const Project = ({
     ) : null}
     <div className="w-full px-2">
       <div className="w-full flex items-center">
-        <img
-          alt={mainStack.data.attributes.name}
-          src={assetGenerator({
-            url: mainStack.data.attributes.icon.data.attributes.url,
-          })}
-          className="h-4"
-        />
+        {mainStack?.data ? (
+          <img
+            alt={mainStack.data.attributes.name}
+            src={assetGenerator({
+              url: mainStack.data.attributes.icon.data.attributes.url,
+            })}
+            className="h-4"
+          />
+        ) : null}
         <span className="ml-2 text-xl font-bold">{title}</span>
         <div className="w-min ml-auto">
           <Links links={links} />
