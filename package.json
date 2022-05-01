@@ -5,11 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:analyze": "ANALYZE=true next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint && eslint . --fix --ext .ts --ext .tsx --ext .js --ext .jsx",
     "prepare": "husky install"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^12.1.5",
     "@react-icons/all-files": "^4.1.0",
     "axios": "^0.26.1",
     "classnames": "^2.3.1",
