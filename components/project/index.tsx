@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import assetGenerator from 'helpers/assetGenerator';
-import { IProject } from 'types/Project';
+import { IProjectList } from 'types/Project';
 import Links from './links';
 import Stacks from './stacks';
 
@@ -8,7 +8,7 @@ const Project = ({
   attributes: {
     title, thumbnail, links, description, stacks, mainStack,
   },
-}: IProject['data'][0]) => (
+}: IProjectList['data'][0]) => (
   <div className="border border-light-red/50 dark:text-white">
     {thumbnail?.data?.attributes.url ? (
       <img

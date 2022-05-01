@@ -1,26 +1,20 @@
+import { IStack, IStackList } from './Stack';
 import {
-  IImage, IComponent, IComponentList, IDataList,
+  IImage, IDataList, IData,
 } from './Strapi';
 
-export interface IProject
-  extends IDataList<{
-    title: string;
-    description: string;
-    links: {
-      github: string;
-      website: string;
-      documentation: string;
-      npm: string;
-    };
-    stacks: IComponentList<{
-      name: string;
-      link: string;
-      icon: IImage;
-    }>;
-    mainStack?: IComponent<{
-      name: string;
-      link: string;
-      icon: IImage;
-    }>;
-    thumbnail?: IImage;
-  }> {}
+interface IProjectData {
+  title: string;
+  description: string;
+  links: {
+    github: string;
+    website: string;
+    documentation: string;
+    npm: string;
+  };
+  stacks: IStackList;
+  mainStack?: IStack;
+  thumbnail?: IImage;
+}
+export interface IProject extends IData<IProjectData> {}
+export interface IProjectList extends IDataList<IProjectData> {}
