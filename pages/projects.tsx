@@ -13,6 +13,7 @@ export const getStaticProps = async () => ({
     stackList: await projects.stacks.get(),
     constantProps: await constant.get(),
   },
+  revalidate: 5 * 60,
 });
 
 const Project = ({

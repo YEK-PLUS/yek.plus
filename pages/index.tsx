@@ -7,6 +7,7 @@ import { InferGetStaticPropsType } from 'next';
 
 export const getStaticProps = async () => ({
   props: await home.get(),
+  revalidate: 5 * 60,
 });
 
 const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => (
