@@ -6,6 +6,7 @@ import Categories from '@/containers/projects/categories';
 import { useState } from 'react';
 import Breadcrumb from '@/containers/common/breadcrumb';
 import constant from 'api/fetch/constant';
+import NavBar from '@/containers/common/navbar';
 
 export const getStaticProps = async () => ({
   props: {
@@ -25,19 +26,21 @@ const Project = ({
   const changeCategory = (cat: string) => setCategory(cat);
   return (
     <div className="grid grid-flow-row gap-4 sm:gap-6">
-      <Breadcrumb
-        items={[
-          {
-            link: '/',
-            name: 'Home',
-          },
-          {
-            link: '/projects',
-            name: 'Projects',
-          },
-        ]}
-        constantProps={constantProps}
-      />
+      <NavBar>
+        <Breadcrumb
+          items={[
+            {
+              link: '/',
+              name: 'Home',
+            },
+            {
+              link: '/projects',
+              name: 'Projects',
+            },
+          ]}
+          constantProps={constantProps}
+        />
+      </NavBar>
       <p className="text-2xl font-bold text-center dark:text-white">
         Project List
       </p>

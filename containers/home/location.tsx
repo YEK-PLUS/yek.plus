@@ -11,7 +11,7 @@ const LocationDiv = styled.div`
   }
 `;
 
-const Location = ({ className, ...props }: { className: string } & IHome) => (
+const Location = ({ className, ...props }: { className?: string } & IHome) => (
   <div
     className={classNames(
       className,
@@ -58,5 +58,7 @@ const Location = ({ className, ...props }: { className: string } & IHome) => (
     </div>
   </div>
 );
-
+Location.defaultProps = {
+  className: '',
+};
 export default Location;

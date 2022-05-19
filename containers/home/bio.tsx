@@ -1,10 +1,7 @@
 import classNames from 'classnames';
-import SocialButton from '@/components/social-button';
-import { FaForward } from '@react-icons/all-files/fa/FaForward';
-import Link from 'next/link';
 import { IHome } from 'types/Home';
 
-const Bio = ({ className, ...props }: { className: string; } & IHome) => (
+const Bio = ({ className, ...props }: { className: string } & IHome) => (
   <div
     className={classNames(
       className,
@@ -12,9 +9,6 @@ const Bio = ({ className, ...props }: { className: string; } & IHome) => (
     )}
   >
     <span>{props.data.attributes.Bio}</span>
-    <Link href="/projects" passHref>
-      <SocialButton title="Projects" icon={FaForward} target="_self" />
-    </Link>
   </div>
 );
 export default Bio;

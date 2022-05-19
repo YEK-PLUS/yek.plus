@@ -4,6 +4,7 @@ import Logo from '@/containers/home/logo';
 import Bio from '@/containers/home/bio';
 import home from 'api/fetch/home';
 import { InferGetStaticPropsType } from 'next';
+import NavBar from '@/containers/common/navbar';
 
 export const getStaticProps = async () => ({
   props: await home.get(),
@@ -12,7 +13,9 @@ export const getStaticProps = async () => ({
 
 const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => (
   <div className="grid sm:grid-cols-4 gap-4 sm:gap-10">
-    <Location className="sm:col-span-4" {...props} />
+    <NavBar className="sm:col-span-4">
+      <Location className="w-full" {...props} />
+    </NavBar>
     <Logo className="sm:col-span-1" {...props} />
     <Bio className="sm:col-span-3" {...props} />
   </div>
