@@ -1,18 +1,10 @@
-import { IStack } from './Stack';
-import { IImage, IData } from './Strapi';
+import { IData } from './Strapi';
 
-export type IDefinitelyTyped<isList> = IData<
+export type IDefinitelyTyped<isList = false> = IData<
   {
-    title: string;
-    description: string;
-    links: {
-      github: string;
-      website: string;
-      documentation: string;
-      npm: string;
-    };
-    mainStack?: IStack;
-    thumbnail?: IImage;
+    name: string;
+    definitelyTyped: string;
+    lib: string;
   },
   isList
 >;
