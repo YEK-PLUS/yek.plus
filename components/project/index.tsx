@@ -17,26 +17,26 @@ const Project = ({
         className="w-full"
       />
     ) : null}
-    <div className="w-full px-2">
-      <div className="w-full flex items-center">
+    <div className="w-full p-2 pt-0 flex flex-col space-y-2">
+      <div className="w-full">
         {mainStack?.data ? (
           <img
             alt={mainStack.data.attributes.name}
             src={assetGenerator({
               url: mainStack.data.attributes.icon.data.attributes.url,
             })}
-            className="h-4"
+            className="h-4 float-left mt-2 mr-2"
           />
         ) : null}
-        <span className="ml-2 text-xl font-bold">{title}</span>
-        <div className="w-min ml-auto">
+        <div className="float-right mt-2">
           <Links links={links} />
         </div>
+        <span className="text-xl font-bold">{title}</span>
       </div>
       <div className="w-full">
         <span>{description}</span>
       </div>
-      <div className="w-full flex py-2">
+      <div className="w-full flex">
         <Stacks stacks={stacks} />
       </div>
     </div>

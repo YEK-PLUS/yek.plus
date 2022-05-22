@@ -1,7 +1,6 @@
 import strapi from 'api/strapi';
 import qs from 'qs';
 import { IContribute } from 'types/Contribute';
-import { IDefinitelyTyped } from 'types/DefinitelyTyped';
 import { IStack } from 'types/Stack';
 import { IProject } from '../../types/Project';
 
@@ -20,14 +19,6 @@ const getStacks = () => strapi.get(
     { encodeValuesOnly: true },
   )}`,
 ) as Promise<IStack<true>>;
-const getDefinitelyTyped = () => strapi.get(
-  `/definitely-types?${qs.stringify(
-    {
-      populate: '*',
-    },
-    { encodeValuesOnly: true },
-  )}`,
-) as Promise<IDefinitelyTyped<true>>;
 
 const getContributes = () => strapi.get(
   `/contributes?${qs.stringify(
@@ -42,9 +33,6 @@ const project = {
   remove,
   stacks: {
     get: getStacks,
-  },
-  definitelyTyped: {
-    get: getDefinitelyTyped,
   },
   contribute: {
     get: getContributes,

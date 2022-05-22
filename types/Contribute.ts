@@ -1,5 +1,5 @@
 import { IStack } from './Stack';
-import { IData } from './Strapi';
+import { IData, IImage } from './Strapi';
 
 export type IContribute<isList = false> = IData<
   {
@@ -13,6 +13,7 @@ export type IContribute<isList = false> = IData<
     };
     stacks: IStack<true>;
     mainStack?: IStack;
+    thumbnail?: IImage;
   },
   isList
 >;
