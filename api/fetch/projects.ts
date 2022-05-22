@@ -1,5 +1,6 @@
 import strapi from 'api/strapi';
 import qs from 'qs';
+import { IContribute } from 'types/Contribute';
 import { IDefinitelyTyped } from 'types/DefinitelyTyped';
 import { IStack } from 'types/Stack';
 import { IProject } from '../../types/Project';
@@ -28,6 +29,13 @@ const getDefinitelyTyped = () => strapi.get(
   )}`,
 ) as Promise<IDefinitelyTyped<true>>;
 
+const getContributes = () => strapi.get(
+  `/contributes?${qs.stringify(
+    query,
+    { encodeValuesOnly: true },
+  )}`,
+) as Promise<IContribute<true>>;
+
 const remove = () => strapi.delete('/projects');
 const project = {
   get,
@@ -37,6 +45,9 @@ const project = {
   },
   definitelyTyped: {
     get: getDefinitelyTyped,
+  },
+  contribute: {
+    get: getContributes,
   },
 };
 export default project;
