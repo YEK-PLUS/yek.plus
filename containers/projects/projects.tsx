@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { IProjectList } from 'types/Project';
+import { IProject } from 'types/Project';
 import Project from 'components/project';
 
 const Projects = ({
   projects,
   category,
 }: {
-  projects: IProjectList;
+  projects: IProject<true>;
   category: string;
 }) => (
   <div className="w-full flex flex-wrap">

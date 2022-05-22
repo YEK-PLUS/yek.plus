@@ -1,7 +1,7 @@
 import { IStack } from './Stack';
 import { IImage, IData } from './Strapi';
 
-export type IProject<isList = false> = IData<
+export type IDefinitelyTyped<isList> = IData<
   {
     title: string;
     description: string;
@@ -11,7 +11,6 @@ export type IProject<isList = false> = IData<
       documentation: string;
       npm: string;
     };
-    stacks: IStack<true>;
     mainStack?: IStack;
     thumbnail?: IImage;
   },

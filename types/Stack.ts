@@ -1,10 +1,11 @@
-import { IData, IDataList, IImage } from './Strapi';
+import { IData, IImage } from './Strapi';
 
-export interface IStackData {
-  name: string;
-  link: string;
-  showcase: boolean;
-  icon: IImage;
-}
-export interface IStack extends IData<IStackData> {}
-export interface IStackList extends IDataList<IStackData> {}
+export type IStack<isList = false> = IData<
+  {
+    name: string;
+    link: string;
+    showcase: boolean;
+    icon: IImage;
+  },
+  isList
+>;

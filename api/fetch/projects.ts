@@ -1,7 +1,7 @@
 import strapi from 'api/strapi';
 import qs from 'qs';
-import { IStackList } from 'types/Stack';
-import { IProjectList } from '../../types/Project';
+import { IStack } from 'types/Stack';
+import { IProject } from '../../types/Project';
 
 const query = {
   populate: ['stacks.icon', 'mainStack.icon', 'thumbnail', 'links'],
@@ -9,12 +9,15 @@ const query = {
 
 const get = () => strapi.get(
   `/projects?${qs.stringify(query, { encodeValuesOnly: true })}`,
-) as Promise<IProjectList>;
+) as Promise<IProject<true>>;
 const getStacks = () => strapi.get(
-  `/stacks?${qs.stringify({
-    populate: '*',
-  }, { encodeValuesOnly: true })}`,
-) as Promise<IStackList>;
+  `/stacks?${qs.stringify(
+    {
+      populate: '*',
+    },
+    { encodeValuesOnly: true },
+  )}`,
+) as Promise<IStack<true>>;
 
 const remove = () => strapi.delete('/projects');
 const project = {

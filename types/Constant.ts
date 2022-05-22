@@ -1,7 +1,9 @@
 import { IData, IImage } from './Strapi';
 
-export interface IConstant
-  extends IData<{
+export type IConstant<isList = false> = IData<
+  {
     NickName: string;
     MiniLogo: IImage;
-  }> {}
+  },
+  isList
+>;

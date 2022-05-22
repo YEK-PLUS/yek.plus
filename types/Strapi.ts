@@ -1,26 +1,8 @@
-export interface IImage {
-  data: {
-    id: number;
-    attributes: {
-      url: string;
-    };
-  };
-}
-export interface IComponent<T> {
-  data: {
-    id: number;
-    attributes: T;
-  };
-}
-export interface IComponentList<T> {
-  data: IComponent<T>['data'][];
-}
-export interface IData<T> {
-  data: {
-    id: number;
-    attributes: T;
-  };
-}
-export interface IDataList<T> {
-  data: IData<T>['data'][];
-}
+type Data<T> = {
+  id: number;
+  attributes: T;
+};
+export type IData<T, isList = false> = {
+  data: isList extends true ? Array<Data<T>> : Data<T>;
+};
+export type IImage<isList = false> = IData<{ url: string }, isList>;

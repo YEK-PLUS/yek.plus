@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import assetGenerator from 'helpers/assetGenerator';
 import Link from 'next/link';
-import { IProjectList } from 'types/Project';
+import { IProject } from 'types/Project';
 
 const Stacks = ({
   stacks,
 }: {
-  stacks: IProjectList['data'][0]['attributes']['stacks'];
+  stacks: IProject['data']['attributes']['stacks'];
 }) => (
   <div className="grid grid-flow-col gap-2">
     {stacks.data.map((stack) => (

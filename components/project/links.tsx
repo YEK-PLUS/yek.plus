@@ -1,11 +1,11 @@
-import { IProjectList } from 'types/Project';
+import { IProject } from 'types/Project';
 import { FaFileAlt } from '@react-icons/all-files/fa/FaFileAlt';
 import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
 import { FaNpm } from '@react-icons/all-files/fa/FaNpm';
 import { FaShareAlt } from '@react-icons/all-files/fa/FaShareAlt';
 import Link from 'next/link';
 
-const Links = ({ links }: { links: IProjectList['data'][0]['attributes']['links'] }) => (
+const Links = ({ links }: { links: IProject['data']['attributes']['links'] }) => (
   <div className="grid grid-flow-col gap-2">
     {links.github ? (
       <Link passHref href={links.github}>

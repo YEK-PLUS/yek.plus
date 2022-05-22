@@ -1,5 +1,5 @@
 import CategoryItem from '@/components/category-item';
-import { IStackList } from 'types/Stack';
+import { IStack } from 'types/Stack';
 
 const Categories = ({
   category,
@@ -7,7 +7,7 @@ const Categories = ({
   stackList,
 }: {
   category: string;
-  stackList: IStackList;
+  stackList: IStack<true>;
   // eslint-disable-next-line no-unused-vars
   onToggle: (cat: string) => void;
 }) => (
